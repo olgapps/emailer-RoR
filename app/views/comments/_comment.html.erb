@@ -1,0 +1,15 @@
+<div class="media">
+    <div class ="pull-left">
+        <%="#{comment.user.try(:email) }" %>
+        <%=comment.body%>
+    </div>
+    <div class="media-body">
+        <p class ="media-heading pull-right">
+        <%= "#{time_ago_in_words(comment.created_at)} ago" if comment.created_at %>
+        
+        </p>
+    </div>
+</div>
+
+<%=link_to "Edit", edit_article_comment_path(comment.article)%>
+<%=link_to "Delete", [comment.article, comment], method: :delete, data: {confirm: "Are you sure"}%>

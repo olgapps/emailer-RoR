@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light"> 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="navbar-brand" href="#">Navbar</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>      
+    </ul>
+  
+    <div class = "nav navbar-nav navbar-right">
+      <li class="nav-item active">
+          
+          <li class="nav-item"><%= link_to "Contact", pages_contact_path %></li></li>
+          <li class="nav-item"><%= link_to "About us", pages_about_path %></li></li>
+           <li><%= link_to "View Articles", articles_path %></li>
+          <li class="nav-item"><%= link_to "Create article", new_article_path %></li></li>
+          <li class="nav-item"><%= link_to "sign up", new_user_registration_path if !current_user %></li></li>
+          <li class="nav-item"><%= link_to "sign in", new_user_session_path if !current_user %></li></li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <%if current_user %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+            </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#"><%= link_to "sign out", destroy_user_session_path, method: :delete %></a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item"><%= link_to "edit my profile", edit_user_registration_path %></li></a>
+          </div>
+        </li>
+        <%end%>
+    </div>
+  </div>
+</nav>
